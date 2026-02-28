@@ -92,7 +92,7 @@ export function findGiftIdeas(
     if (budget && gift.tags.budgets?.includes(budget)) score += 2;
     if (interest && gift.tags.interests?.includes(interest)) score += 4;
 
-    return score >= 4;
+    return score >= 2;
   });
 
   if (budget === '0-20') {
