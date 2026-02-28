@@ -40,7 +40,7 @@ const giftDatabase: GiftIdea[] = [
     id: '3',
     title: 'Smartwatch deportivo con GPS',
     description: 'Monitoriza salud, rutas y entrenamientos con precisión.',
-    image: 'https://images.unsplash.com/photo-1598970434795-0c54fe7c0648',
+    image: 'https://prixton.es/wp-content/uploads/2023/05/RELOJ-INTELIGENTE-SMARTWATCH-SW29-ALEXA-ASISTENTE-VOZ-WEARABLES-PRIXTON-1.jpg',
     priceRange: '€100+',
     link: '#',
     tags: { interests: ['tecnologia', 'deporte'], ages: ['21-35', '36-55'], recipients: ['pareja'] }
