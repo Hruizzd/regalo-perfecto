@@ -22,7 +22,7 @@ const giftDatabase: GiftIdea[] = [
     id: '1',
     title: 'Auriculares inalámbricos ANC premium',
     description: 'Cancelación activa de ruido y sonido envolvente.',
-    image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad',
+    image: 'https://img4.dhresource.com/webp/m/f3/albu/jc/h/22/e884e479-d5b4-498e-92ee-082e4bd9cc10.jpg',
     priceRange: '€50-100',
     link: '#',
     tags: {
