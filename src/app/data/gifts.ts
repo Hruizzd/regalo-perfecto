@@ -20,8 +20,8 @@ const giftDatabase: GiftIdea[] = [
   // TECNOLOGÍA
   {
     id: '1',
-    title: 'Auriculares inalámbricos ANC premium',
-    description: 'Cancelación activa de ruido, sonido envolvente y batería de larga duración.',
+    title: 'Perfume de marca',
+    description: 'Aroma renovado, de alguna marca famosa',
     image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad',
     priceRange: '€50-100',
     link: '#',
