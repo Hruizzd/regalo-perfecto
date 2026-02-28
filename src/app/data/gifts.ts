@@ -254,4 +254,43 @@ const giftDatabase: GiftIdea[] = [
   }
 ];
 
+export function findGiftIdeas(
+  recipient: Recipient | null,
+  age: AgeRange | null,
+  budget: Budget | null,
+  interest: Interest | null
+): GiftIdea[] {
+  let matches = giftDatabase.filter((gift) => {
+    let score = 0;
+
+    if (recipient && gift.tags.recipients?.includes(recipient)) score += 3;
+    if (age && gift.tags.ages?.includes(age)) score += 2;
+    if (budget && gift.tags.budgets?.includes(budget)) score += 2;
+    if (interest && gift.tags.interests?.includes(interest)) score += 4;
+
+    return score >= 2;
+  });
+
+  if (budget === '0-20') {
+    matches.sort((a, b) => (b.isDIY ? 1 : 0) - (a.isDIY ? 1 : 0));
+  }
+
+  if (matches.length < 3) {
+    const fallbacks = giftDatabase.filter(
+      (gift) =>
+        (interest && gift.tags.interests?.includes(interest)) ||
+        (age && gift.tags.ages?.includes(age))
+    );
+
+    matches = [...matches, ...fallbacks];
+
+    matches = Array.from(new Map(matches.map((item) => [item.id, item])).values());
+
+    matches = matches.slice(0, 5);
+  }
+
+  return matches.slice(0, 5);
+}
+
+
 export default giftDatabase;
