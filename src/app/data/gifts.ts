@@ -31,7 +31,7 @@ const giftDatabase: GiftIdea[] = [
     id: '2',
     title: 'Power bank ultrarrápido 20.000 mAh',
     description: 'Carga tres dispositivos a la vez con tecnología de carga rápida.',
-    image: 'https://images.unsplash.com/photo-1606813907291-1c0e1a5daebc',
+    image: 'https://www.maxmovil.com/media/catalog/product/cache/2c055c968235f5bf43b443aee4bb62c6/s/a/samsung_power_bank_20000mah_beige_3_.png',
     priceRange: '€20-50',
     link: '#',
     tags: { interests: ['tecnologia'], ages: ['21-35', '13-20', '36-55'], recipients: ['companero'] }
