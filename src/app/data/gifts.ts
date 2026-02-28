@@ -154,7 +154,7 @@ const giftDatabase: GiftIdea[] = [
     id: '16',
     title: 'E-reader con luz cálida',
     description: 'Ideal para leer sin cansar la vista.',
-    image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0ea',
+    image: 'https://img.asmedia.epimg.net/resizer/v2/QSJZ6MAWR5HT7MDSAXUC3MZJTM.png?auth=79e0a74fa044608c8ed8cafaee05c403c3853ce578116494be8601f38bbf8225&width=1200&height=1200&smart=true',
     priceRange: '€100+',
     link: '#',
     tags: {
@@ -168,7 +168,7 @@ const giftDatabase: GiftIdea[] = [
     id: '17',
     title: 'Suscripción a audiolibros',
     description: 'Acceso ilimitado a miles de títulos.',
-    image: 'https://images.unsplash.com/photo-1512427691650-1f4e0f2c1f1d',
+    image: 'https://lalibretadenani.com/wp-content/uploads/2023/10/audiolibros-plataformas-y-suscripciones.png',
     priceRange: '€20-50',
     link: '#',
     tags: {
