@@ -124,7 +124,7 @@ const giftDatabase: GiftIdea[] = [
     id: '8',
     title: 'Clase de cocina gourmet para dos',
     description: 'Una experiencia culinaria única.',
-    image: 'https://images.unsplash.com/photo-1528715471579-d1bcf0c6c1c5',
+    image: 'https://media.smartbox.com/pim/380x285/1000002005818434490135.jpg',
     priceRange: '€50-100',
     link: '#',
     tags: {
