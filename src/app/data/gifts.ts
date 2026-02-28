@@ -260,6 +260,7 @@ export function findGiftIdeas(
   budget: Budget | null,
   interest: Interest | null
 ): GiftIdea[] {
+  // 1. FILTRO PRINCIPAL
   let matches = giftDatabase.filter((gift) => {
     let score = 0;
 
@@ -271,26 +272,45 @@ export function findGiftIdeas(
     return score >= 2;
   });
 
+  // 2. PRIORIDAD PARA PRESUPUESTO BAJO
   if (budget === '0-20') {
     matches.sort((a, b) => (b.isDIY ? 1 : 0) - (a.isDIY ? 1 : 0));
   }
 
+  // 3. FALLBACK INTELIGENTE (solo interés y presupuesto)
   if (matches.length < 3) {
-    const fallbacks = giftDatabase.filter(
-      (gift) =>
-        (interest && gift.tags.interests?.includes(interest)) ||
-        (age && gift.tags.ages?.includes(age))
-    );
+    const fallbacks = giftDatabase.filter((gift) => {
+      let score = 0;
+
+      if (interest && gift.tags.interests?.includes(interest)) score += 3;
+      if (budget && gift.tags.budgets?.includes(budget)) score += 2;
+
+      return score >= 3; // evita regalos aleatorios
+    });
 
     matches = [...matches, ...fallbacks];
-
-    matches = Array.from(new Map(matches.map((item) => [item.id, item])).values());
-
-    matches = matches.slice(0, 5);
   }
 
-  return matches.slice(0, 5);
-}
+  // 4. ORDENAR POR RELEVANCIA REAL
+  matches.sort((a, b) => {
+    const scoreA =
+      (recipient && a.tags.recipients?.includes(recipient) ? 3 : 0) +
+      (age && a.tags.ages?.includes(age) ? 2 : 0) +
+      (budget && a.tags.budgets?.includes(budget) ? 2 : 0) +
+      (interest && a.tags.interests?.includes(interest) ? 4 : 0);
 
+    const scoreB =
+      (recipient && b.tags.recipients?.includes(recipient) ? 3 : 0) +
+      (age && b.tags.ages?.includes(age) ? 2 : 0) +
+      (budget && b.tags.budgets?.includes(budget) ? 2 : 0) +
+      (interest && b.tags.interests?.includes(interest) ? 4 : 0);
+
+    return scoreB - scoreA;
+  });
+
+  // 5. ELIMINAR DUPLICADOS Y LIMITAR A 5
+  const uniqueMatches = Array.from(new Map(matches.map((item) => [item.id, item])).values());
+  return uniqueMatches.slice(0, 5);
+}
 
 export default giftDatabase;
